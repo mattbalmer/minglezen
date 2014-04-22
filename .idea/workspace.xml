@@ -52,15 +52,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="56" selection-start="69" selection-end="69" vertical-scroll-proportion="0.045454547" vertical-offset="0" max-vertical-offset="660">
+            <state line="2" column="42" selection-start="55" selection-end="55" vertical-scroll-proportion="-1.1538461" vertical-offset="0" max-vertical-offset="120">
               <folding />
             </state>
           </provider>
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="5" selection-start="18" selection-end="18" vertical-scroll-proportion="0.02186589" vertical-offset="0" max-vertical-offset="686">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -103,6 +112,7 @@
         <option value="$PROJECT_DIR$/manifest.json" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -318,12 +328,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="56" selection-start="69" selection-end="69" vertical-scroll-proportion="0.045454547" vertical-offset="0" max-vertical-offset="660">
+        <state line="2" column="42" selection-start="55" selection-end="55" vertical-scroll-proportion="-1.1538461" vertical-offset="0" max-vertical-offset="120">
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="5" selection-start="18" selection-end="18" vertical-scroll-proportion="0.02186589" vertical-offset="0" max-vertical-offset="686">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
