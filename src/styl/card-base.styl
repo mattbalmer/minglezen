@@ -1,0 +1,40 @@
+// ===============
+// Base Controls
+// ===============
+.card-icon
+    width 95% !important
+    position relative
+    height auto !important
+    border-radius 5px
+
+    .card
+        font-size 14px !important
+        padding 10px !important
+        position relative
+        height auto
+        min-height 80px
+
+        // Card ####
+        .card-summary-number
+            margin -5px -5px 10px 10px !important
+
+            a
+                color #aaa !important
+                font-weight normal
+                font-style italic
+
+        // Show card as blocked
+        &.blocked-card
+            border 2px solid #d22 !important
+            border-left-width 6px !important
+
+            & + .blocked-comments
+                display block
+
+    .blocked-comments
+        display none
+        border 2px solid #d22
+        border-left-width 6px
+        background rgba(221, 34, 34, .2)
+        padding 5px
+        color #000
