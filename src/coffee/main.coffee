@@ -1,6 +1,13 @@
 parseXml = (response) ->
-    data = $.parseXML(response)
-    JSON.parse('' + xml2json(data, '\t')).card
+	data = $.parseXML(response)
+	json = JSON.parse('' + xml2json(data, '\t')).card
+
+	# Change @nil property to just be tha value instead
+	for k, v of json.properties
+		if v.value && v.value['@nil'] == 'true'
+			v.value = null
+
+	return json
 
 $ ->
     # Assume that this is NOT a Thoughtworks Mingle application if 'thoughtworks' isn't present in the HTML

@@ -1,47 +1,47 @@
 class MingleZen
-    @API_PATH: '{host}/api/v2/projects/{team}{uri}'
-    @formatter: null
-    @team: null
+	@API_PATH: '{host}/api/v2/projects/{team}{uri}'
+	@formatter: null
+	@team: null
 
-    cards: []
+	cards: []
 
-    constructor: (settings)->
-        for k of settings
-            @[k] = settings[k]
+	constructor: (settings)->
+		for k of settings
+			@[k] = settings[k]
 
-        @constructor.team = @getTeam()
-        @constructor.formatter = new MZFormatter
+		@constructor.team = @getTeam()
+		@constructor.formatter = new MZFormatter
 
-    ### =======================
-    ===== Primary Methods =====
-    ======================= ###
+	### =======================
+	===== Primary Methods =====
+	======================= ###
 
-    run: ->
-        @update()
-        setInterval =>
-            @update()
-        , 500
+	run: ->
+		@update()
+		setInterval =>
+			@update()
+		, 500
 
-    update: ->
-        count = $('.card').length
-        if count is 0 or count isnt @cards.length   # ie. something's changed in the DOM
-            @$cards = $(@cardSelector)
+	update: ->
+		count = $('.card').length
+		if count is 0 or count isnt @cards.length   # ie. something's changed in the DOM
+			@$cards = $(@cardSelector)
 
-            @cards = (new Card $(c) for c in @$cards)
+			@cards = (new Card $(c) for c in @$cards)
 
-    ### ======================
-    ===== Helper Methods =====
-    ====================== ###
+	### ======================
+	===== Helper Methods =====
+	====================== ###
 
-    getTeam: ->
-        window.location.pathname.split('/')[2] # /projects/TEAM_NAME/etc
+	getTeam: ->
+		window.location.pathname.split('/')[2] # /projects/TEAM_NAME/etc
 
-    ### ======================
-    ===== Static Methods =====
-    ====================== ###
+	### ======================
+	===== Static Methods =====
+	====================== ###
 
-    @getPath: (uri, values) ->
-        @API_PATH.format
-            host: window.location.origin
-            team: @team
-            uri: uri.format values
+	@getPath: (uri, values) ->
+		@API_PATH.format
+			host: window.location.origin
+			team: @team
+			uri: uri.format values

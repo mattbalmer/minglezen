@@ -20,6 +20,11 @@ class MZFormatter
         # picking up on the color attribute) and the background should not be set
         $card.css 'background', 'rgba({0}, {1}, {2}, {3})'.format(c.r, c.g, c.b, .2) unless c.r is 51
 
+    block: ($card, comments = '[no comments]') ->
+        $blockedComments = $('<div/>').addClass('blocked-comments').text comments
+
+        $card.addClass('blocked-card').after $blockedComments
+
     ### ======================
     ===== Helper Methods =====
     ====================== ###
