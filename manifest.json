@@ -1,6 +1,6 @@
 {
     "name" : "MingleZen",
-    "version" : "0.0.1",
+    "version" : "0.2.0",
     "description" : "Improves the interface of Mingle, providing a more elegant User Experience.",
     "manifest_version": 2,
     "permissions" : [ "http://*/*", "https://*/*", "storage" ],

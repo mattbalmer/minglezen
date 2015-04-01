@@ -79,7 +79,28 @@ function RGBColor(color_string)
     // some getters
     this.toRGB = function () {
         return 'rgb(' + this.r + ', ' + this.g + ', ' + this.b + ')';
-    }
+    };
+
+    this.lighten = function(amount) {
+        this.r += Math.min(255, Math.round(amount * this.r));
+        this.g += Math.min(255, Math.round(amount * this.g));
+        this.b += Math.min(255, Math.round(amount * this.b));
+    };
+
+    this.darken = function(amount) {
+        this.r -= Math.round(amount * this.r);
+        this.g -= Math.round(amount * this.g);
+        this.b -= Math.round(amount * this.b);
+    };
+
+    this.setSaturation = function(amount) {
+        var gray = this.r * 0.3086 + this.g * 0.6094 + this.b * 0.0820;
+
+        this.r = Math.round(this.r * amount + gray * (1-amount));
+        this.g = Math.round(this.g * amount + gray * (1-amount));
+        this.b = Math.round(this.b * amount + gray * (1-amount));
+    };
+
     this.toHex = function () {
         var r = this.r.toString(16);
         var g = this.g.toString(16);

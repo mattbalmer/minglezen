@@ -13,6 +13,24 @@ class MZFormatter
     format: ($card)->
         $card.addClass 'card'
 
+    createTitleBar: ($card) ->
+        bar = $("<div />").addClass('title-bar')
+        $card.prepend bar
+
+    movePoints: ($card) ->
+        number = $card.find('.card-summary-number')
+        numberClone = number.clone()
+        number.remove()
+        $card.find('.title-bar').append numberClone
+
+    setPoints: ($card, points) ->
+        $card.addClass 'points-' + points
+        pointsLabel = (points or '?') + ' pt' + (if points == 1 then '' else 's')
+        pointsDiv = $("<div />")
+            .addClass 'card-points'
+            .text pointsLabel
+        $card.find('.title-bar').append pointsDiv
+
     colorize: ($card, c = @extract 'color', $card)->
         c = new RGBColor c
 

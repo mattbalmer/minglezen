@@ -9,19 +9,35 @@
 
     .card
         font-size 14px !important
-        padding 10px !important
         position relative
         height auto
         min-height 80px
+        padding 0
+
+        .title-bar
+            background rgba(#000, 0.05)
+            border-bottom 1px solid rgba(#000, 0.1)
+            padding 3px 6px 2px
+
+            .card-points
+                display inline-block
+                color #888
+
+            .card-summary-number
+                margin 0 !important
+                text-decoration none
 
         // Card ####
         .card-summary-number
-            margin -5px -5px 10px 10px !important
+            margin 5px 5px 10px 10px !important
 
             a
                 color #aaa !important
                 font-weight normal
                 font-style italic
+
+        .card-name
+            padding 10px
 
         // Show card as blocked
         &.blocked-card

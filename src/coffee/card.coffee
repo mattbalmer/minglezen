@@ -17,6 +17,10 @@ class Card
 	update: (json)->
 		@extend json
 
+		MingleZen.formatter.createTitleBar @$
+		MingleZen.formatter.movePoints @$
+		MingleZen.formatter.setPoints @$, @prop('story points'), @color
+
 		if @isBlocked()
 			MingleZen.formatter.block @$, @prop('blocked comments')
 

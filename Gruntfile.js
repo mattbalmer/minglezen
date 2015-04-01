@@ -92,7 +92,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Default task(s).
-    grunt.registerTask('default', [ 'coffee', 'stylus', 'concat', 'uglify', 'clean' ]);
-    grunt.registerTask('w', [ 'default', 'watch' ]);
+    var compile = [ 'coffee', 'stylus', 'concat', 'uglify', 'clean' ];
+    grunt.registerTask('compile', compile);
+    grunt.registerTask('default', compile.concat([ 'watch' ]));
 
 };
