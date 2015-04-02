@@ -1,6 +1,6 @@
 {
   "name": "MingleZen",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "devDependencies": {
     "nib": "1.0.x",
     "grunt": "~0.4.2",

@@ -14,16 +14,22 @@ class MZFormatter
         $card.addClass 'card'
 
     createTitleBar: ($card) ->
+        if $card.find('.title-bar').length > 0 then return
+
         bar = $("<div />").addClass('title-bar')
         $card.prepend bar
 
     movePoints: ($card) ->
+        if $card.find('.title-bar').find('.card-summary-number').length > 0 then return
+
         number = $card.find('.card-summary-number')
         numberClone = number.clone()
         number.remove()
         $card.find('.title-bar').append numberClone
 
     setPoints: ($card, points) ->
+        if $card.find('.title-bar').find('.card-points').length > 0 then return
+
         $card.addClass 'points-' + points
         pointsLabel = (points or '?') + ' pt' + (if points == 1 then '' else 's')
         pointsDiv = $("<div />")
