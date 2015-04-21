@@ -45,3 +45,12 @@ class MingleZen
 			host: window.location.origin
 			team: @team
 			uri: uri.format values
+
+	@queryFromProps: (properties) ->
+		queryParts = []
+
+		for name, value of properties
+			queryParts.push 'card[properties][][name]=' + encodeURIComponent(name)
+			queryParts.push 'card[properties][][value]=' + encodeURIComponent(value)
+
+		return '?' + queryParts.join('&')

@@ -13,6 +13,14 @@ class MZFormatter
     format: ($card)->
         $card.addClass 'card'
 
+        @addBlockBar $card
+
+    addBlockBar: ($card) ->
+        if $card.find('.block-bar').length > 0 then return
+
+        blockBar = $('<div/>').addClass('block-bar').text 'Block'
+        $card.append blockBar
+
     createTitleBar: ($card) ->
         if $card.find('.title-bar').length > 0 then return
 
@@ -44,10 +52,30 @@ class MZFormatter
         # picking up on the color attribute) and the background should not be set
         $card.css 'background', 'rgba({0}, {1}, {2}, {3})'.format(c.r, c.g, c.b, .2) unless c.r is 51
 
-    block: ($card, comments = '[no comments]') ->
-        $blockedComments = $('<div/>').addClass('blocked-comments').text comments
+    block: ($card, handleSubmit, comments = '[no comments]') ->
+        if $card.find('.blocked-comments').length > 0 then return
+
+        shiftOn = false
+        $blockedComments = $('<textarea/>')
+            .addClass('blocked-comments')
+            .prop 'placeholder', 'Press [Enter] to save'
+            .val comments
+            .bind 'keyup', (e)=>
+                if ((e.keyCode || e.which) == 16 || (e.shiftKey))
+                    shiftOn = false
+            .bind 'keypress', (e)=>
+                if ((e.keyCode || e.which) == 16 || (e.shiftKey))
+                    shiftOn = true
+                if ((e.keyCode || e.which) == 13 && !shiftOn)
+                    e.preventDefault()
+                    handleSubmit $blockedComments.val()
+                    return false
 
         $card.addClass('blocked-card').after $blockedComments
+
+    unblock: ($card) ->
+        $card.removeClass('blocked-card')
+        $card.find('.blocked-comments').remove()
 
     ### ======================
     ===== Helper Methods =====

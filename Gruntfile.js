@@ -53,7 +53,7 @@ module.exports = function(grunt) {
         watch: {
             coffee: {
                 files: 'src/coffee/**/*.coffee',
-                tasks: [ 'coffee' ],
+                tasks: [ 'coffee', 'concat', 'uglify', 'clean' ],
                 options: {
                     interrupt: true,
                     interval: 100
@@ -62,14 +62,6 @@ module.exports = function(grunt) {
             stylus: {
                 files: 'src/styl/*.styl',
                 tasks: [ 'stylus' ],
-                options: {
-                    interrupt: true,
-                    interval: 100
-                }
-            },
-            concat: {
-                files: 'src/*.js',
-                tasks: [ 'concat', 'uglify', 'clean' ],
                 options: {
                     interrupt: true,
                     interval: 100
